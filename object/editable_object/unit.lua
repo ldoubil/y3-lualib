@@ -973,6 +973,27 @@ function M:set_blood_bar_text(node_name, text, role, font)
     GameAPI.set_billboard_text(self.handle, node_name, text, role and role.handle or nil, font)
 end
 
+---设置血条可见性
+---@param node_name string # 血条命名
+---@param visible boolean # 可见性
+---@param role? Player # 玩家
+function M:set_billboard_visible(node_name, visible, role)
+    GameAPI.set_billboard_visible(self.handle, node_name, visible, role and role.handle or nil)
+end
+
+---设置血条整体可见性
+---@param visible boolean # 可见性
+---@param role? Player # 玩家
+function M:set_billboard_overall_visible(visible, role)
+    GameAPI.set_billboard_overall_visibility(self.handle, visible, role and role.handle or nil)
+end
+
+---重置血条整体可见性
+---@param role? Player # 玩家
+function M:reset_billboard_overall_visible(role)
+    GameAPI.reset_billboard_overall_visibility(self.handle, role and role.handle or nil)
+end
+
 ---设置血条进度
 ---@param node_name string # 血条命名
 ---@param progress number # 进度
